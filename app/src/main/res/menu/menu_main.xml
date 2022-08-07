@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="cn.fuckmiui.xiaowine.MainActivity">
+    <item
+            android:title="编译时间"/>
+</menu>

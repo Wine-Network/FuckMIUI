@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FirstFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/card_view_background"
+                android:id="@+id/cardView">
+
+            <TextView
+                    android:text="MIUI很多功能都是通过覆盖层实现的\n可以通过屏蔽还原原生的东西\n\n部分原生的功能也并没有删，只是把入口屏蔽了"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:paddingEnd="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_color"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/card_view_background"
+                app:layout_constraintTop_toBottomOf="@id/cardView"
+                android:layout_marginTop="16dp"
+                android:id="@+id/cardView2">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:checked="false"
+                        android:id="@+id/screenshot"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"
+                        android:text="原生截图"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:checked="false"
+                        android:id="@+id/shutdown"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"
+                        android:text="旧关机界面"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:checked="false"
+                        android:id="@+id/control"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"
+                        android:text="旧控制中心"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:checked="false"
+                        android:id="@+id/volume"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"
+                        android:text="原生音量键"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:checked="false"
+                        android:id="@+id/player"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"
+                        android:text="禁用妙播中心"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:checked="false"
+                        android:id="@+id/gesture"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"
+                        android:text="禁用全面屏手势"/>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/card_view_background"
+                android:id="@+id/cardView3"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                        android:text="高级电量统计"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/battery"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"/>
+
+                <TextView
+                        android:text="高级测试工具"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/test"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"/>
+
+                <TextView
+                        android:text="高级温度查看"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/temperature"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"/>
+
+                <TextView
+                        android:text="极暗模式"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/dark"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"/>
+
+                <TextView
+                        android:text="历史对话"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/dialogue"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"/>
+
+                <TextView
+                        android:text="正在运行的服务"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/running"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"/>
+
+                <TextView
+                        android:text="增强通知"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/notice"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"/>
+
+                <TextView
+                        android:text="内存使用量"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/memory"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"/>
+
+                <TextView
+                        android:text="卸载小米社区"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/uninstall"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
