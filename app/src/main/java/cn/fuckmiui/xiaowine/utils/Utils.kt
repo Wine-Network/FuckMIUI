@@ -2,15 +2,32 @@ package cn.fuckmiui.xiaowine.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
+import cn.fuckmiui.xiaowine.BuildConfig
 import java.util.*
 
 
 object Utils {
     const val TAG = "FuckMIUI"
     private val handler by lazy { Handler(Looper.getMainLooper()) }
+
+    fun bash(context: Context): String = if (isSystemApplication(context)) "sh" else "su"
+    fun isSystemApplication(context: Context): Boolean {
+        val mPackageManager: PackageManager = context.packageManager
+        try {
+            val packageInfo = mPackageManager.getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_CONFIGURATIONS)
+            if (packageInfo.applicationInfo.flags and ApplicationInfo.FLAG_SYSTEM > 0) {
+                return true
+            }
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        }
+        return false
+    }
 
     @SuppressLint("UseCompatLoadingForDrawables")
     fun showToastOnLooper(context: Context, message: String) {

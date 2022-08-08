@@ -1,5 +1,8 @@
 package cn.fuckmiui.xiaowine
 
+import android.content.Context
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -16,12 +19,15 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import cn.fuckmiui.xiaowine.databinding.ActivityMainBinding
+import cn.fuckmiui.xiaowine.utils.Utils.TAG
 import cn.fuckmiui.xiaowine.utils.Utils.isPresent
+import cn.fuckmiui.xiaowine.utils.Utils.isSystemApplication
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.jaredrummler.ktsh.Shell
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.system.exitProcess
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,13 +57,15 @@ class MainActivity : AppCompatActivity() {
 //            Snackbar.make(view, "MIUI很多功能都是通过覆盖层实现的\n可以通过屏蔽还原原生的东西", Snackbar.LENGTH_LONG).setAnchorView(R.id.fab).setAction("Action", null).show()
 //        }
         Thread {
-            val command = "su"
-            val result = Shell("sh").run(command)
-            Log.i("FuckMIUI", result.output())
-            if (!result.isSuccess) {
-                val dialog = MaterialAlertDialogBuilder(this).setTitle("权限不足").setMessage("无ROOT权限，无法使用本工具箱功能").setNegativeButton("退出") { _, _ -> exitProcess(0) }.setCancelable(false)
-                Handler(Looper.getMainLooper()).post { dialog.show() }
+            if (!isSystemApplication(this)) {
+                val result = Shell("sh").run("su")
+                Log.i("FuckMIUI", result.output())
+                if (!result.isSuccess) {
+                    val dialog = MaterialAlertDialogBuilder(this).setTitle("权限不足").setMessage("无ROOT权限，无法使用本工具箱功能").setNegativeButton("退出") { _, _ -> exitProcess(0) }.setCancelable(false)
+                    Handler(Looper.getMainLooper()).post { dialog.show() }
+                }
             }
+
 
             if (!isPresent("android.provider.MiuiSettings")) {
                 val dialog = MaterialAlertDialogBuilder(this).setTitle("本设备非MIUI").setMessage("本工具箱功能的所有功能都针对于MIUI，其他系统无法使用").setNegativeButton("退出") { _, _ -> exitProcess(0) }.setCancelable(false)
@@ -67,6 +75,8 @@ class MainActivity : AppCompatActivity() {
 
         }.start()
     }
+
+
 
     //
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
